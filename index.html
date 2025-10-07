@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sharen Rajenthiran — Portfolio</title>
+    <meta name="description" content="Personal portfolio of me: experience, projects, education, awards, certifications, and contact information." />
+
+    
+    <link rel="icon" href="https://fav.farm/👨‍💻" />
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            },
+            colors: {
+              primary: {
+                DEFAULT: '#7C3AED',
+                50: '#F3E8FF',
+                100: '#E9D5FF',
+                200: '#D8B4FE',
+                300: '#C084FC',
+                400: '#A855F7',
+                500: '#9333EA',
+                600: '#7C3AED',
+                700: '#6D28D9',
+                800: '#5B21B6',
+                900: '#4C1D95',
+              },
+            },
+            boxShadow: {
+              glass: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+            },
+            backdropBlur: {
+              xs: '2px',
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Subtle reveal animation */
+      .reveal { opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s ease; }
+      .revealed { opacity: 1; transform: translateY(0); }
+
+      /* Loader animation */
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-primary-500/30">
+    <!-- Background gradient decorations -->
+    <div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute -top-40 -right-40 w-[40rem] h-[40rem] rounded-full blur-3xl opacity-30"
+           style="background: radial-gradient( circle at 30% 30%, #7C3AED, transparent 60% );"></div>
+      <div class="absolute top-1/3 -left-40 w-[40rem] h-[40rem] rounded-full blur-3xl opacity-30"
+           style="background: radial-gradient( circle at 70% 70%, #06B6D4, transparent 60% );"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-50 grid place-items-center bg-slate-950">
+      <div class="relative w-40 h-40">
+        <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary-500 via-fuchsia-500 to-cyan-400 bg-[length:200%_200%] animate-[gradientShift_3s_ease_infinite] opacity-90"></div>
+        <div class="absolute inset-2 rounded-3xl bg-slate-950/80 backdrop-blur-md border border-white/10 shadow-glass grid place-items-center">
+          <div class="w-10 h-10 border-2 border-white/30 border-t-white rounded-full animate-[spin_1s_linear_infinite]"></div>
+          <p class="mt-3 text-xs tracking-widest text-white/60">Loading</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-slate-950/50 border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="#home" class="flex items-center gap-2 group">
+            <span class="inline-grid place-items-center w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-500 to-cyan-400 text-white font-bold">Y</span>
+            <span class="font-semibold tracking-tight group-hover:text-primary-300 transition-colors">Sharen Rajenthiran</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-1">
+            <a href="#summary" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Summary</a>
+            <a href="#skills" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Skills</a>
+            <a href="#experience" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Experience</a>
+            <a href="#projects" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Projects</a>
+            <a href="#education" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Education</a>
+            <a href="#awards" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Awards</a>
+            <a href="#certifications" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Certifications</a>
+            <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Contact</a>
+          </nav>
+          <div class="md:hidden">
+            <button id="menuBtn" class="p-2 rounded-lg hover:bg-white/5" aria-label="Open menu">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white/80">
+                <path fill-rule="evenodd" d="M4.5 6.75a.75.75 0 01.75-.75h13.5a.75.75 0 010 1.5H5.25a.75.75 0 01-.75-.75zm0 5.25c0-.414.336-.75.75-.75h13.5a.75.75 0 010 1.5H5.25a.75.75 0 01-.75-.75zm.75 4.5a.75.75 0 000 1.5h13.5a.75.75 0 000-1.5H5.25z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="md:hidden hidden border-t border-white/5 bg-slate-950/80 backdrop-blur-xl">
+        <nav class="max-w-7xl mx-auto px-4 py-3 grid gap-1">
+            <a href="#summary" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Summary</a>
+            <a href="#skills" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Skills</a>
+            <a href="#experience" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Experience</a>
+            <a href="#projects" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Projects</a>
+            <a href="#education" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Education</a>
+            <a href="#awards" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Awards</a>
+            <a href="#certifications" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Certifications</a>
+            <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home" class="relative">
+      <!-- Hero / Summary -->
+      <section id="summary" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 md:pt-24 md:pb-16">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="reveal">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+              Hi, I’m <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400">Sharen Rajenthiran</span>
+            </h1>
+            <p class="mt-4 text-lg text-white/70">
+                Fresh graduate Software Engineer with hands-on experience delivering
+                production-ready AI-powered full-stack development projects. Competent in
+                API design and development with AI integration, with SQL
+                and NoSQL databases. Eager to build career in software engineering. Please check out my projects below.
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-primary-600 to-cyan-500 hover:from-primary-500 hover:to-cyan-400 transition shadow-lg shadow-primary-900/30">
+                View Projects
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </a>
+              <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 transition">
+                Contact Me
+              </a>
+            </div>
+            <div class="mt-6 flex items-center gap-4 text-white/60">
+              <a href="https://github.com/Sharen-Rajenthiran" target="_blank" rel="noreferrer" class="hover:text-white">GitHub</a>
+              <a href="https://www.linkedin.com/in/sharen-rajenthiran/" target="_blank" rel="noreferrer" class="hover:text-white">LinkedIn</a>
+              <a href="mailto:sharenrajenthiran@gmail.com" class="hover:text-white">Email</a>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="relative mx-auto max-w-sm">
+              <div class="absolute -inset-1 bg-gradient-to-tr from-primary-500 to-cyan-400 rounded-3xl blur opacity-40"></div>
+              <div class="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-4">
+                <img class="rounded-2xl object-cover object-top w-full h-80" src="assets/me/msg393202364-5135-edited.JPG" alt="Portrait" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Proficiency -->
+      <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="reveal">
+          <div class="flex items-end justify-between gap-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Technical Proficiency</h2>
+            <span class="text-white/50 text-sm">Stack & tools</span>
+          </div>
+          <div class="mt-8 grid md:grid-cols-2 gap-6">
+            <article class="rounded-2xl p-6 border border-white/10 bg-white/5">
+              <h3 class="font-semibold text-lg">Full-Stack Development</h3>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">React.js</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Next.js</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Tailwind CSS</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">FastAPI</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Express.js</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">.NET</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">ASP.NET</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Python</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">TypeScript</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">JavaScript</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">C#</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Java</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">C++</span>
+              </div>
+            </article>
+            <article class="rounded-2xl p-6 border border-white/10 bg-white/5">
+              <h3 class="font-semibold text-lg">DevOps & Cloud</h3>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Docker</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Git</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">AWS EC2</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Azure AI</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">GCP Vertex AI</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">RoboFlow</span>
+              </div>
+            </article>
+            <article class="rounded-2xl p-6 border border-white/10 bg-white/5">
+              <h3 class="font-semibold text-lg">Artificial Intelligence and Machine Learning</h3>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Hugging Face</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">LangChain</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">LangGraph</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">TensorFlow</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">OpenCV</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">NumPy</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Scikit</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">Object Detection API</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">YOLO</span>
+              </div>
+            </article>
+            <article class="rounded-2xl p-6 border border-white/10 bg-white/5">
+              <h3 class="font-semibold text-lg">Databases</h3>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">MS SQL</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">MySQL</span>
+                <span class="px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">MongoDB</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Experience -->
+      <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="reveal">
+          <div class="flex items-end justify-between gap-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Professional Experience</h2>
+            <span class="text-white/50 text-sm">Where I've worked</span>
+          </div>
+          <div class="mt-8 grid gap-6">
+            <!-- Experience Item -->
+            <article class="group relative grid md:grid-cols-[auto,1fr,auto] items-start gap-6 rounded-2xl p-5 border border-white/10 bg-white/5 hover:bg-white/10 transition">
+              <img src="assets/companies/imagine-ai.png" alt="Imagine AI logo" class="w-14 h-14 rounded-xl object-cover" />
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="font-semibold text-lg">Software Engineer</h3>
+                  <span class="px-2 py-1 rounded-md bg-white/10 text-xs text-white/70">Imagine AI Sdn Bhd</span>
+                  <span class="px-2 py-1 rounded-md bg-white/10 text-xs text-white/70">Johor Bahru</span>
+                </div>
+                <p class="text-white/70 mt-1">Built delightful user experiences and scalable services powering millions of requests.</p>
+                <ul class="mt-3 list-disc list-outside pl-5 text-white/70 text-sm leading-relaxed">
+                  <li>Developed and maintained multiple AI-powered software projects,
+                    handling both frontend and backend API development with database.</li>
+                  <li>Delivered core AI-powered features such as Generative AI, Object
+                    Detection, and AI Avatars with low latency and high accuracy.</li>
+                  <li>Implemented DevOps workflows (Git, Docker, Azure) for deployment
+                    and scalability.</li>
+                  <li>Developed features for in-house projects such as automated PDF
+                    reporting using C#, Windows Forms, and .NET framework, streamlining
+                    client report generation.</li>
+                </ul>
+              </div>
+              <div class="justify-self-end text-right text-white/50 text-sm">Jun 2025 - Aug 2025</div>
+            </article>
+
+            <article class="group relative grid md:grid-cols-[auto,1fr,auto] items-start gap-6 rounded-2xl p-5 border border-white/10 bg-white/5 hover:bg-white/10 transition">
+              <img src="assets/companies/etiqa-takaful-2.png" alt="Etiqa Takaful logo" class="w-14 h-14 rounded-xl object-cover" />
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="font-semibold text-lg">Software Engineer (AI)</h3>
+                  <span class="px-2 py-1 rounded-md bg-white/10 text-xs text-white/70">Etiqa Takaful</span>
+                  <span class="px-2 py-1 rounded-md bg-white/10 text-xs text-white/70">Johor Bahru</span>
+                </div>
+                <p class="text-white/70 mt-1">Researched and experimented with various models, tools, frameworks to build AI-powered features.</p>
+                <ul class="mt-3 list-disc list-outside pl-5 text-white/70 text-sm leading-relaxed">
+                  <li>Automated customer inquiry analysis by building a data pipeline using
+                    API and Zero-Shot text classification, reducing manual reporting effort.</li>
+                  <li>Designed and deployed a web scraping pipeline to update chatbot
+                    FAQs, ensuring responses stayed current without manual updates.</li>
+                  <li>Delivered a working chatbot prototype using Streamlit and FastAPI with
+                    RAG retrieval, enabling document ingestion and automated customer
+                    support.</li>
+                </ul>
+              </div>
+              <div class="justify-self-end text-right text-white/50 text-sm">Feb 2024 - Jun 2024</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="reveal">
+          <div class="flex items-end justify-between gap-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Technical Projects Highlight</h2>
+            <span class="text-white/50 text-sm">Things I’ve built</span>
+          </div>
+          <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Project Card -->
+            <article class="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition">
+              <div class="relative">
+                <img src="assets/projects/foodiego.jpg" alt="Project illustration" class="w-full h-44 object-cover" />
+                <video class="hidden" muted loop playsinline></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold text-lg">FoodieGo</h3>
+                <p class="text-white/70 mt-1"> 
+                    A full-stack food delivery platform where users can browse restaurants and menus, add items to their cart, place orders, and check order history.
+                    Integrated with AI chatbot for customer support powered by OpenAI chat completion API.
+                    Built using .NET, Next.js, SQL Server, TypeScript, Tailwind CSS, FastAPI and OpenAI API.
+                </p>
+                <div class="mt-4 flex items-center gap-3">
+                  <a href="https://github.com/Sharen-Rajenthiran" target="_blank" rel="noreferrer" class="text-primary-300 hover:text-primary-200 text-sm">Repo →</a>
+                  <button type="button" data-gallery="assets/projects/demo/foodiego/" class="text-white/60 hover:text-white text-sm underline underline-offset-2">Demo Pictures →</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition">
+              <div class="relative">
+                <img src="assets/projects/domain-chatbot.jpg" alt="Project illustration" class="w-full h-44 object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold text-lg">Domain-specific Chatbot</h3>
+                <p class="text-white/70 mt-1">A domain-specific chatbot built using Hugging Face's chat model and Next.js.
+                    Implemented RAG retrieval for document ingestion and automated customer support based on custom domain.
+                    Built using Next.js, TypeScript, Tailwind CSS, and Hugging Face.
+                </p>
+                <div class="mt-4 flex items-center gap-3">
+                  <a href="https://github.com/Sharen-Rajenthiran/domain-chatbot-backend" target="_blank" rel="noreferrer" class="text-primary-300 hover:text-primary-200 text-sm">Repo →</a>
+                  <button type="button" data-gallery="assets/projects/demo/domain-chatbot/" class="text-white/60 hover:text-white text-sm underline underline-offset-2">Demo Pictures →</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition">
+              <div class="relative">
+                <img src="assets/projects/kibo-2025.png" alt="Project illustration" class="w-full h-44 object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold text-lg">Android APK Embedded with Custom Object Detection Model (AI Computer Vision)</h3>
+                <p class="text-white/70 mt-1">Part of International Robotics Programming Competition 2025. Trained a custom computer vision model using Transfer Learning approach.
+                    Achieved 95% accuracy in production with only a few milliseconds of latency.
+                    Won 3rd place nationally.
+                    Implemented the model in an Android APK using Java, OpenCV and TensorFlow.
+                </p>
+                <div class="mt-4 flex items-center gap-3">
+                  <button type="button" data-gallery="assets/projects/demo/kibo-2025/" class="text-white/60 hover:text-white text-sm underline underline-offset-2">Demo Pictures →</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="reveal">
+          <div class="flex items-end justify-between gap-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Education</h2>
+            <span class="text-white/50 text-sm">Where I learned</span>
+          </div>
+          <div class="mt-8 grid md:grid-cols-2 gap-6 relative">
+            <div class="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-white/10 via-white/5 to-transparent pointer-events-none hidden md:block"></div>
+            <article class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+              <h3 class="font-semibold text-lg">Master in Computer Science — Universiti Teknologi Malaysia</h3>
+              <p class="text-white/70 mt-1">2025 - Present</p>
+              <p class="text-white/70 mt-3">Enrolled as an ODL student.
+                Aimed to improve my skills in software engineering, algorithms, and AI development.
+                Increase my theoretical knowledge in computer science.
+              </p>
+            </article>
+            <article class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+              <h3 class="font-semibold text-lg">B.Sc. in Physics — Universiti Teknologi Malaysia</h3>
+              <p class="text-white/70 mt-1">2019 — 2023</p>
+              <p class="text-white/70 mt-3">Graduated with 3.93 GCPA.
+                Focus on problem-solving skills that can be applied to real-world problems including software engineering, algorithms, and AI development.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Awards -->
+      <section id="awards" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="reveal">
+          <div class="flex items-end justify-between gap-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Awards</h2>
+            <span class="text-white/50 text-sm">Recognition</span>
+          </div>
+          <ul class="mt-8 grid md:grid-cols-2 gap-6 relative">
+            <div class="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-white/10 via-white/5 to-transparent pointer-events-none hidden md:block"></div>
+            <li class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+              <h3 class="font-semibold">KIBO 2025</h3>
+              <p class="text-white/70 mt-2">Won 3rd place nationally in International Robotics Programming Competition 2025.</p>
+            </li>
+            <li class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+              <h3 class="font-semibold">Gold Medalist</h3>
+              <p class="text-white/70 mt-2">For scoring CPGA of 3.93 in B.Sc. in Physics.</p>
+            </li>
+            <li class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+                <h3 class="font-semibold">Dean's List</h3>
+                <p class="text-white/70 mt-2">For all semesters scoring above 3.80 CGPA.</p>
+            </li>
+            <li class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+                <h3 class="font-semibold">Best Presenter</h3>
+                <p class="text-white/70 mt-2">Best Final-Year Project presented for the nuclear panel.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Certifications -->
+      <section id="certifications" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="reveal">
+          <div class="flex items-end justify-between gap-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Certifications</h2>
+            <span class="text-white/50 text-sm">What I’ve earned</span>
+          </div>
+          <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+              <img src="assets/certificates/JavaScript Algorithms and Data Structures_FreeCodeCamp Sharen Rajenthiran.png" alt="Certificate" class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+              <div class="p-4">
+                <h3 class="font-semibold">JavaScript Data Structures and Algorithms</h3>
+                <p class="text-white/70 text-sm mt-1">FreeCodeCamp - Jan 2025</p>
+                <p class="text-white/70 text-sm mt-2">Learned about data structures and algorithms in JavaScript.</p>
+                <a href="https://www.freecodecamp.org/certification/sharenrajenthiran/javascript-algorithms-and-data-structures-v8" rel="noreferrer" target="_blank" class="inline-block mt-3 text-primary-300 hover:text-primary-200 text-sm">View Certificate →</a>
+              </div>
+            </article>
+            <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+              <img src="assets/certificates/Scientific Computing with Python_FreeCodeCamp Sharen Rajenthiran.png" alt="Certificate" class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+              <div class="p-4">
+                <h3 class="font-semibold">Scientific Computing with Python</h3>
+                <p class="text-white/70 text-sm mt-1">FreeCodeCamp — Dec 2024</p>
+                <p class="text-white/70 text-sm mt-2">Learned about how we use python for scientific computing.
+                </p>
+                <a href="https://www.freecodecamp.org/certification/sharenrajenthiran/scientific-computing-with-python-v7" rel="noreferrer" target="_blank" class="inline-block mt-3 text-primary-300 hover:text-primary-200 text-sm">View Certificate →</a>
+              </div>
+            </article>
+            <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+              <img src="assets/certificates/Basics of Quantum Information_IBM_Sharen Rajenthiran.png" alt="Certificate" class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+              <div class="p-4">
+                <h3 class="font-semibold">Quantum Information Science</h3>
+                <p class="text-white/70 text-sm mt-1">IBM — Aug 2024</p>
+                <p class="text-white/70 text-sm mt-2">Provided the basics of quantum information science.
+                    Relevant in quantum computing and quantum machine learning.
+                </p>
+                <a href="https://www.credly.com/badges/a2abda51-0d76-461f-8732-8e1157cd81cf/linked_in_profile" rel="noreferrer" target="_blank" class="inline-block mt-3 text-primary-300 hover:text-primary-200 text-sm">View Certificate →</a>
+              </div>
+            </article>
+            <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+                <img src="assets/certificates/Variational Algorithm Design_IBM_Sharen Rajenthiran.png" alt="Certificate" class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+                <div class="p-4">
+                  <h3 class="font-semibold">Variational Algorithm Design</h3>
+                  <p class="text-white/70 text-sm mt-1">IBM — Aug 2024</p>
+                  <p class="text-white/70 text-sm mt-2">Provided the foundation of building algorithms, particularly variational algorithms.
+                      Relevant in quantum computing and quantum machine learning.
+                      But also strengthen my problem-solving skills and ability to think critically.
+                  </p>
+                  <a href="https://www.credly.com/badges/d04125f5-c5c2-42a9-819b-cb3d31d10394/linked_in_profile" rel="noreferrer" target="_blank" class="inline-block mt-3 text-primary-300 hover:text-primary-200 text-sm">View Certificate →</a>
+                </div>
+              </article>
+              <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+                <img src="assets/certificates/Data Analysis with Python_FreeCodeCamp Sharen Rajenthiran.png" alt="Certificate" class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+                <div class="p-4">
+                  <h3 class="font-semibold">Data Analysis with Python</h3>
+                  <p class="text-white/70 text-sm mt-1">FreeCodeCamp — Sep 2023</p>
+                  <p class="text-white/70 text-sm mt-2">Learned about data analysis with python.
+                    Included the use of pandas, numpy, matplotlib, seaborn, and scikit-learn.
+                    Improved my skills in using data analysis tools and techniques.
+                    Please view the certificate for more details on the projects.
+                  </p>
+                  <a href="https://www.freecodecamp.org/certification/sharenrajenthiran/data-analysis-with-python-v7" rel="noreferrer" target="_blank" class="inline-block mt-3 text-primary-300 hover:text-primary-200 text-sm">View Certificate →</a>
+                </div>
+              </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="reveal">
+          <div class="flex items-end justify-between gap-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Contact</h2>
+            <span class="text-white/50 text-sm">Let’s build something</span>
+          </div>
+          <div class="mt-8 grid md:grid-cols-2 gap-6">
+            <div class="rounded-2xl p-6 border border-white/10 bg-white/5">
+              <ul class="grid gap-3 text-white/80">
+                <li><span class="text-white/50">Email:</span> <a class="hover:text-white" href="mailto:sharenrajenthiran@gmail.com">sharenrajenthiran@gmail.com</a></li>
+                <li><span class="text-white/50">Location:</span> Johor Bahru, Malaysia</li>
+                <li><span class="text-white/50">Phone:</span> <a class="hover:text-white" href="tel:+1234567890">+60177292191</a></li>
+              </ul>
+              <div class="mt-4 flex items-center gap-4 text-white/60">
+                <a href="https://github.com/Sharen-Rajenthiran" target="_blank" rel="noreferrer" class="hover:text-white">GitHub</a>
+                <a href="https://www.linkedin.com/in/sharen-rajenthiran/" target="_blank" rel="noreferrer" class="hover:text-white">LinkedIn</a>
+              </div>
+            </div>
+            <form class="rounded-2xl p-6 border border-white/10 bg-white/5 grid gap-4" onsubmit="window.location.href='mailto:sharenrajenthiran@gmail.com?subject=Portfolio Contact&body=' + encodeURIComponent(document.getElementById('msg').value); return false;">
+              <div>
+                <label for="name" class="text-sm text-white/70">Name</label>
+                <input id="name" type="text" class="mt-1 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500/60" placeholder="Your name" />
+              </div>
+              <div>
+                <label for="email" class="text-sm text-white/70">Email</label>
+                <input id="email" type="email" class="mt-1 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500/60" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="msg" class="text-sm text-white/70">Message</label>
+                <textarea id="msg" rows="4" class="mt-1 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500/60" placeholder="Tell me about your project..."></textarea>
+              </div>
+              <button type="submit" class="mt-2 inline-flex items-center justify-center px-5 py-3 rounded-xl bg-gradient-to-r from-primary-600 to-cyan-500 hover:from-primary-500 hover:to-cyan-400 transition shadow-lg shadow-primary-900/30">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal Gallery -->
+    <div id="galleryModal" class="fixed inset-0 z-50 hidden">
+      <div id="galleryBackdrop" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"></div>
+      <div class="relative mx-auto max-w-6xl h-full flex flex-col">
+        <div class="mt-10 mx-4 md:mx-8 rounded-2xl border border-white/10 bg-slate-900/90 overflow-hidden">
+          <div class="flex items-center justify-between p-4 border-b border-white/10">
+            <h3 class="font-semibold">Demo Pictures</h3>
+            <button id="galleryClose" class="p-2 rounded-lg hover:bg-white/10" aria-label="Close gallery">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-white/80"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 11-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+          </div>
+          <div id="galleryContent" class="p-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[70vh] overflow-auto">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Lightbox for full-size viewing -->
+    <div id="imageLightbox" class="fixed inset-0 z-50 hidden">
+      <div id="lightboxBackdrop" class="absolute inset-0 bg-slate-950/90 backdrop-blur-sm"></div>
+      <div class="relative h-full flex items-center justify-center p-4">
+        <div id="lightboxPanel" class="relative max-w-6xl w-full max-h-[90vh] bg-slate-900/95 border border-white/10 rounded-2xl shadow-glass p-4 flex items-center justify-center">
+          <!-- Close button -->
+          <button id="lightboxClose" class="absolute -top-3 -right-3 p-2 rounded-md bg-red-600 hover:bg-red-500 border border-red-300/40 shadow ring-1 ring-black/10" aria-label="Close image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-white"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 11-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <!-- Prev / Next arrows -->
+          <button id="lightboxPrev" class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-md bg-primary-600/30 hover:bg-primary-600/40 border border-primary-400/30" aria-label="Previous image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-primary-200"><path fill-rule="evenodd" d="M15.53 5.47a.75.75 0 010 1.06L10.06 12l5.47 5.47a.75.75 0 11-1.06 1.06l-6-6a.75.75 0 010-1.06l6-6a.75.75 0 011.06 0z" clip-rule="evenodd"/></svg>
+          </button>
+          <button id="lightboxNext" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-md bg-primary-600/30 hover:bg-primary-600/40 border border-primary-400/30" aria-label="Next image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-primary-200"><path fill-rule="evenodd" d="M8.47 18.53a.75.75 0 010-1.06L13.94 12 8.47 6.53a.75.75 0 111.06-1.06l6 6a.75.75 0 010 1.06l-6 6a.75.75 0 01-1.06 0z" clip-rule="evenodd"/></svg>
+          </button>
+          <img id="lightboxImg" alt="Full size" class="max-w-full max-h-[80vh] object-contain rounded-md" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-white/60 text-sm">
+        <p>© <span id="year"></span> Sharen Rajenthiran. All rights reserved.</p>
+        <p>Built with HTML, Tailwind CSS, and vanilla JS.</p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
