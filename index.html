@@ -25,17 +25,17 @@
             },
             colors: {
               primary: {
-                DEFAULT: '#7C3AED',
-                50: '#F3E8FF',
-                100: '#E9D5FF',
-                200: '#D8B4FE',
-                300: '#C084FC',
-                400: '#A855F7',
-                500: '#9333EA',
-                600: '#7C3AED',
-                700: '#6D28D9',
-                800: '#5B21B6',
-                900: '#4C1D95',
+                DEFAULT: '#2563EB',
+                50: '#EFF6FF',
+                100: '#DBEAFE',
+                200: '#BFDBFE',
+                300: '#93C5FD',
+                400: '#60A5FA',
+                500: '#3B82F6',
+                600: '#2563EB',
+                700: '#1D4ED8',
+                800: '#1E40AF',
+                900: '#1E3A8A',
               },
             },
             boxShadow: {
@@ -54,31 +54,35 @@
       .reveal { opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s ease; }
       .revealed { opacity: 1; transform: translateY(0); }
 
+      html { scrollbar-width: none; }
+      body { -ms-overflow-style: none; }
+      html::-webkit-scrollbar, body::-webkit-scrollbar { width: 0; height: 0; }
+
+      #equationBg {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -20;
+        opacity: 1.00;
+        pointer-events: none;
+        
+      }
+
       /* Loader animation */
       @keyframes spin {
         to { transform: rotate(360deg); }
-      }
-      @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
       }
     </style>
   </head>
 
   <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-primary-500/30">
-    <!-- Background gradient decorations -->
-    <div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden">
-      <div class="absolute -top-40 -right-40 w-[40rem] h-[40rem] rounded-full blur-3xl opacity-30"
-           style="background: radial-gradient( circle at 30% 30%, #7C3AED, transparent 60% );"></div>
-      <div class="absolute top-1/3 -left-40 w-[40rem] h-[40rem] rounded-full blur-3xl opacity-30"
-           style="background: radial-gradient( circle at 70% 70%, #06B6D4, transparent 60% );"></div>
-    </div>
+    <canvas id="equationBg" aria-hidden="true"></canvas>
 
     <!-- Preloader -->
     <div id="preloader" class="fixed inset-0 z-50 grid place-items-center bg-slate-950">
       <div class="relative w-40 h-40">
-        <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary-500 via-fuchsia-500 to-cyan-400 bg-[length:200%_200%] animate-[gradientShift_3s_ease_infinite] opacity-90"></div>
+        <div class="absolute inset-0 rounded-3xl bg-primary-600/90 animate-pulse"></div>
         <div class="absolute inset-2 rounded-3xl bg-slate-950/80 backdrop-blur-md border border-white/10 shadow-glass grid place-items-center">
           <div class="w-10 h-10 border-2 border-white/30 border-t-white rounded-full animate-[spin_1s_linear_infinite]"></div>
           <p class="mt-3 text-xs tracking-widest text-white/60">Loading</p>
@@ -91,7 +95,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <a href="#home" class="flex items-center gap-2 group">
-            <span class="inline-grid place-items-center w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-500 to-cyan-400 text-white font-bold">Y</span>
+            <span class="inline-grid place-items-center w-8 h-8 rounded-lg bg-primary-600 text-white font-bold">SR</span>
             <span class="font-semibold tracking-tight group-hover:text-primary-300 transition-colors">Sharen Rajenthiran</span>
           </a>
           <nav class="hidden md:flex items-center gap-1">
@@ -134,16 +138,19 @@
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <div class="reveal">
             <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-              Hi, I’m <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400">Sharen Rajenthiran</span>
+              Hi, I’m <span class="text-primary-200">Sharen Rajenthiran</span>
             </h1>
-            <p class="mt-4 text-lg text-white/70">
-                Fresh graduate Software Engineer with hands-on experience delivering
-                production-ready AI-powered full-stack development projects. Competent in
-                API design and development with AI integration, with SQL
-                and NoSQL databases. Eager to build career in software engineering. Please check out my projects below.
+            <p class="mt-4 text-lg text-white/70 text-justify">
+                Applied physics graduate with professional software engineering experience. 
+                Experienced in building end-to-end software solutions involving automation, data analysis, and system design across 
+                real-world engineering projects. 
+                Interested in technical roles both within software engineering and physics-driven industries, 
+                including semiconductor, industrial R&D, engineering, instrumentation and geophysics. 
+                The background is inspired by curved spacetime given by Einstein Field Equations.
+                Please check out my projects below.
             </p>
             <div class="mt-6 flex flex-wrap items-center gap-3">
-              <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-primary-600 to-cyan-500 hover:from-primary-500 hover:to-cyan-400 transition shadow-lg shadow-primary-900/30">
+              <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-primary-600 hover:bg-primary-500 transition shadow-lg shadow-black/20">
                 View Projects
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
@@ -161,7 +168,7 @@
           </div>
           <div class="reveal">
             <div class="relative mx-auto max-w-sm">
-              <div class="absolute -inset-1 bg-gradient-to-tr from-primary-500 to-cyan-400 rounded-3xl blur opacity-40"></div>
+              <div class="absolute -inset-1 bg-primary-600/25 rounded-3xl blur opacity-40"></div>
               <div class="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-4">
                 <img class="rounded-2xl object-cover object-top w-full h-80" src="assets/me/msg393202364-5135-edited.JPG" alt="Portrait" />
               </div>
@@ -321,7 +328,7 @@
               <div class="relative">
                 <img src="assets/projects/employee-management-system.jpg" alt="Project illustration" class="w-full h-44 object-cover" />
                 <video class="hidden" muted loop playsinline></video>
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent"></div>
+                <div class="absolute inset-0 bg-slate-950/60"></div>
               </div>
               <div class="p-5">
                 <h3 class="font-semibold text-lg">Employee Management System</h3>
@@ -340,7 +347,7 @@
               <div class="relative">
                 <img src="assets/projects/foodiego.jpg" alt="Project illustration" class="w-full h-44 object-cover" />
                 <video class="hidden" muted loop playsinline></video>
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent"></div>
+                <div class="absolute inset-0 bg-slate-950/60"></div>
               </div>
               <div class="p-5">
                 <h3 class="font-semibold text-lg">FoodieGo</h3>
@@ -359,7 +366,7 @@
             <article class="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition">
               <div class="relative">
                 <img src="assets/projects/domain-chatbot.jpg" alt="Project illustration" class="w-full h-44 object-cover" />
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent"></div>
+                <div class="absolute inset-0 bg-slate-950/60"></div>
               </div>
               <div class="p-5">
                 <h3 class="font-semibold text-lg">Domain-specific Chatbot</h3>
@@ -377,7 +384,7 @@
             <article class="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition">
               <div class="relative">
                 <img src="assets/projects/kibo-2025.png" alt="Project illustration" class="w-full h-44 object-cover" />
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent"></div>
+                <div class="absolute inset-0 bg-slate-950/60"></div>
               </div>
               <div class="p-5">
                 <h3 class="font-semibold text-lg">Android APK Embedded with Custom Object Detection Model (AI Computer Vision)</h3>
@@ -403,9 +410,9 @@
             <span class="text-white/50 text-sm">Where I learned</span>
           </div>
           <div class="mt-8 grid md:grid-cols-2 gap-6 relative">
-            <div class="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-white/10 via-white/5 to-transparent pointer-events-none hidden md:block"></div>
+            <div class="absolute left-4 top-0 bottom-0 w-px bg-white/10 pointer-events-none hidden md:block"></div>
             <article class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
-              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-primary-500"></span>
               <h3 class="font-semibold text-lg">Master in Computer Science — Universiti Teknologi Malaysia</h3>
               <p class="text-white/70 mt-1">2025 - Present</p>
               <p class="text-white/70 mt-3">Enrolled as an ODL student.
@@ -414,7 +421,7 @@
               </p>
             </article>
             <article class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
-              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-primary-500"></span>
               <h3 class="font-semibold text-lg">B.Sc. in Physics — Universiti Teknologi Malaysia</h3>
               <p class="text-white/70 mt-1">2019 — 2023</p>
               <p class="text-white/70 mt-3">Graduated with 3.93 GCPA.
@@ -433,24 +440,24 @@
             <span class="text-white/50 text-sm">Recognition</span>
           </div>
           <ul class="mt-8 grid md:grid-cols-2 gap-6 relative">
-            <div class="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-white/10 via-white/5 to-transparent pointer-events-none hidden md:block"></div>
+            <div class="absolute left-4 top-0 bottom-0 w-px bg-white/10 pointer-events-none hidden md:block"></div>
             <li class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
-              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-primary-500"></span>
               <h3 class="font-semibold">KIBO 2025</h3>
               <p class="text-white/70 mt-2">Won 3rd place nationally in International Robotics Programming Competition 2025.</p>
             </li>
             <li class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
-              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-primary-500"></span>
               <h3 class="font-semibold">Gold Medalist</h3>
               <p class="text-white/70 mt-2">For scoring CPGA of 3.93 in B.Sc. in Physics.</p>
             </li>
             <li class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
-              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-primary-500"></span>
                 <h3 class="font-semibold">Dean's List</h3>
                 <p class="text-white/70 mt-2">For all semesters scoring above 3.80 CGPA.</p>
             </li>
             <li class="relative rounded-2xl p-5 border border-white/10 bg-white/5 md:pl-10">
-              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-gradient-to-tr from-primary-500 to-cyan-400"></span>
+              <span class="hidden md:block absolute left-2 top-6 w-3 h-3 rounded-full bg-primary-500"></span>
                 <h3 class="font-semibold">Best Presenter</h3>
                 <p class="text-white/70 mt-2">Best Final-Year Project presented for the nuclear panel.</p>
             </li>
@@ -537,7 +544,7 @@
               <ul class="grid gap-3 text-white/80">
                 <li><span class="text-white/50">Email:</span> <a class="hover:text-white" href="mailto:sharenrajenthiran@gmail.com">sharenrajenthiran@gmail.com</a></li>
                 <li><span class="text-white/50">Location:</span> Johor Bahru, Malaysia</li>
-                <li><span class="text-white/50">Phone:</span> <a class="hover:text-white" href="tel:+1234567890">+60177292191</a></li>
+                <li><span class="text-white/50">Phone:</span> <a class="hover:text-white" href="tel:+60177292191">+60177292191</a></li>
               </ul>
               <div class="mt-4 flex items-center gap-4 text-white/60">
                 <a href="https://github.com/Sharen-Rajenthiran" target="_blank" rel="noreferrer" class="hover:text-white">GitHub</a>
@@ -557,7 +564,7 @@
                 <label for="msg" class="text-sm text-white/70">Message</label>
                 <textarea id="msg" rows="4" class="mt-1 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500/60" placeholder="Tell me about your project..."></textarea>
               </div>
-              <button type="submit" class="mt-2 inline-flex items-center justify-center px-5 py-3 rounded-xl bg-gradient-to-r from-primary-600 to-cyan-500 hover:from-primary-500 hover:to-cyan-400 transition shadow-lg shadow-primary-900/30">Send</button>
+              <button type="submit" class="mt-2 inline-flex items-center justify-center px-5 py-3 rounded-xl bg-primary-600 hover:bg-primary-500 transition shadow-lg shadow-black/20">Send</button>
             </form>
           </div>
         </div>
@@ -588,7 +595,7 @@
       <div class="relative h-full flex items-center justify-center p-4">
         <div id="lightboxPanel" class="relative max-w-6xl w-full max-h-[90vh] bg-slate-900/95 border border-white/10 rounded-2xl shadow-glass p-4 flex items-center justify-center">
           <!-- Close button -->
-          <button id="lightboxClose" class="absolute -top-3 -right-3 p-2 rounded-md bg-red-600 hover:bg-red-500 border border-red-300/40 shadow ring-1 ring-black/10" aria-label="Close image">
+          <button id="lightboxClose" class="absolute -top-3 -right-3 p-2 rounded-md bg-primary-600 hover:bg-primary-500 border border-primary-300/30 shadow ring-1 ring-black/10" aria-label="Close image">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-white"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 11-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd"/></svg>
           </button>
           <!-- Prev / Next arrows -->
