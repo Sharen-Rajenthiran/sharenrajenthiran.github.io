@@ -209,7 +209,7 @@
   <canvas id="equationBg" aria-hidden="true"></canvas>
 
   <!-- Preloader -->
-  <!-- From Uiverse.io by jeremyssocial -->  
+  <!-- From Uiverse.io by jeremyssocial -->
   <div id="preloader" class="fixed inset-0 flex items-center justify-center bg-slate-950 z-50">
     <div class="terminal-loader">
       <div class="terminal-header">
@@ -221,7 +221,7 @@
         </div>
       </div>
       <div class="text">ssh sharen@localhost</div>
-  </div>
+    </div>
   </div>
 
 
@@ -251,6 +251,23 @@
             class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Certifications</a>
           <a href="#contact"
             class="nav-link px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5">Contact</a>
+          <div class="inline-flex gap-2">
+            <div class="relative inline-block w-11 h-5">
+              <input id="switch-component-desc" type="checkbox" checked
+                class="peer appearance-none w-11 h-5 bg-slate-100 rounded-full checked:bg-slate-800 cursor-pointer transition-colors duration-300" />
+              <label for="switch-component-desc"
+                class="absolute top-0 left-0 w-5 h-5 bg-white rounded-full border border-slate-300 shadow-sm transition-transform duration-300 peer-checked:translate-x-6 peer-checked:border-slate-800 cursor-pointer">
+              </label>
+            </div>
+
+            <label for="switch-component-desc" class="text-slate-600 text-sm cursor-pointer">
+              <div>
+                <p class="text-white/80">
+                  Animations
+                </p>
+              </div>
+            </label>
+          </div>
         </nav>
         <div class="md:hidden">
           <button id="menuBtn" class="p-2 rounded-lg hover:bg-white/5" aria-label="Open menu">
@@ -679,8 +696,21 @@
         </div>
         <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+            <img src="assets/certificates/Test-Dome-Sharen-Rajenthiran-C#.png"
+              alt="Certificate" class="w-full h-50 object-cover bg-slate-900/40 p-2" />
+            <div class="p-4">
+              <h3 class="font-semibold">Test Dome - C# Certificate</h3>
+              <p class="text-white/80 text-sm mt-1 bg-black/20 shadow-glass">Test Dome - Mar 2026</p>
+              <p class="text-white/80 text-sm mt-2 bg-black/20 shadow-glass">Test conducted to test candidate's knowledge of 
+                C# programming to solve real-world problems.</p>
+              <a href="https://www.testdome.com/certificates/dd431ba760d647d5a973bfb58399c9c5" rel="noreferrer"
+                target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-200 text-sm">View Certificate
+                →</a>
+            </div>
+          </article>
+          <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
             <img src="assets/certificates/AWS Academy Graduate - Machine Learning Foundations Sharen Rajenthiran.png"
-              alt="Certificate" class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+              alt="Certificate" class="w-full h-50 object-cover bg-slate-900/40 p-2" />
             <div class="p-4">
               <h3 class="font-semibold">AWS Academy Graduate - Machine Learning Foundations</h3>
               <p class="text-white/80 text-sm mt-1 bg-black/20 shadow-glass">Amazon - Nov 2025</p>
@@ -693,7 +723,7 @@
           </article>
           <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
             <img src="assets/certificates/JavaScript Algorithms and Data Structures_FreeCodeCamp Sharen Rajenthiran.png"
-              alt="Certificate" class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+              alt="Certificate" class="w-full h-50 object-cover bg-slate-900/40 p-2" />
             <div class="p-4">
               <h3 class="font-semibold">JavaScript Data Structures and Algorithms</h3>
               <p class="text-white/80 text-sm mt-1 bg-black/20 shadow-glass">FreeCodeCamp - Jan 2025</p>
@@ -706,7 +736,7 @@
           </article>
           <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
             <img src="assets/certificates/Scientific Computing with Python_FreeCodeCamp Sharen Rajenthiran.png"
-              alt="Certificate" class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+              alt="Certificate" class="w-full h-50 object-cover bg-slate-900/40 p-2" />
             <div class="p-4">
               <h3 class="font-semibold">Scientific Computing with Python</h3>
               <p class="text-white/80 text-sm mt-1 bg-black/20 shadow-glass">FreeCodeCamp — Dec 2024</p>
@@ -720,7 +750,7 @@
           </article>
           <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
             <img src="assets/certificates/Basics of Quantum Information_IBM_Sharen Rajenthiran.png" alt="Certificate"
-              class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+              class="w-full h-50 object-cover bg-slate-900/40 p-2" />
             <div class="p-4">
               <h3 class="font-semibold">Quantum Information Science</h3>
               <p class="text-white/80 text-sm mt-1 bg-black/20 shadow-glass">IBM — Aug 2024</p>
@@ -735,7 +765,7 @@
           </article>
           <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
             <img src="assets/certificates/Variational Algorithm Design_IBM_Sharen Rajenthiran.png" alt="Certificate"
-              class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+              class="w-full h-50 object-cover bg-slate-900/40 p-2" />
             <div class="p-4">
               <h3 class="font-semibold">Variational Algorithm Design</h3>
               <p class="text-white/80 text-sm mt-1 bg-black/20 shadow-glass">IBM — Aug 2024</p>
@@ -751,7 +781,7 @@
           </article>
           <article class="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
             <img src="assets/certificates/Data Analysis with Python_FreeCodeCamp Sharen Rajenthiran.png"
-              alt="Certificate" class="w-full h-36 object-contain bg-slate-900/40 p-2" />
+              alt="Certificate" class="w-full h-50 object-cover bg-slate-900/40 p-2" />
             <div class="p-4">
               <h3 class="font-semibold">Data Analysis with Python</h3>
               <p class="text-white/80 text-sm mt-1 bg-black/20 shadow-glass">FreeCodeCamp — Sep 2023</p>
@@ -851,7 +881,7 @@
         class="relative max-w-6xl w-full max-h-[90vh] bg-slate-900/95 border border-white/10 rounded-2xl shadow-glass p-4 flex items-center justify-center">
         <!-- Close button -->
         <button id="lightboxClose"
-          class="absolute -top-3 -right-3 p-2 rounded-md bg-primary-600 hover:bg-primary-500 border border-primary-300/30 shadow ring-1 ring-black/10"
+          class="absolute -top-3 -right-3 p-2 rounded-md bg-amber-600 hover:bg-amber-500 border border-amber-300/30 shadow ring-1 ring-black/10"
           aria-label="Close image">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-white">
             <path fill-rule="evenodd"
@@ -861,20 +891,20 @@
         </button>
         <!-- Prev / Next arrows -->
         <button id="lightboxPrev"
-          class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-md bg-primary-600/30 hover:bg-primary-600/40 border border-primary-400/30"
+          class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-md bg-amber-600/30 hover:bg-amber-600/40 border border-amber-400/30"
           aria-label="Previous image">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-            class="w-6 h-6 text-primary-200">
+            class="w-6 h-6 text-amber-200">
             <path fill-rule="evenodd"
               d="M15.53 5.47a.75.75 0 010 1.06L10.06 12l5.47 5.47a.75.75 0 11-1.06 1.06l-6-6a.75.75 0 010-1.06l6-6a.75.75 0 011.06 0z"
               clip-rule="evenodd" />
           </svg>
         </button>
         <button id="lightboxNext"
-          class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-md bg-primary-600/30 hover:bg-primary-600/40 border border-primary-400/30"
+          class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-md bg-amber-600/30 hover:bg-amber-600/40 border border-amber-400/30"
           aria-label="Next image">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-            class="w-6 h-6 text-primary-200">
+            class="w-6 h-6 text-amber-200">
             <path fill-rule="evenodd"
               d="M8.47 18.53a.75.75 0 010-1.06L13.94 12 8.47 6.53a.75.75 0 111.06-1.06l6 6a.75.75 0 010 1.06l-6 6a.75.75 0 01-1.06 0z"
               clip-rule="evenodd" />

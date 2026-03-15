@@ -1,3 +1,19 @@
+// Run or stop animations
+const toggle = document.getElementById('switch-component-desc');
+let running = toggle?.checked ?? true;
+if (toggle) {
+  toggle.addEventListener('change', () => {
+    running = toggle.checked;
+
+    if (running) {
+      start();
+    } else {
+      stop();
+    }
+
+  });
+}
+
 // Update footer year
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -255,12 +271,12 @@ if (equationBg instanceof HTMLCanvasElement) {
   const ctx = equationBg.getContext('2d', { alpha: true });
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const equations = [
-    'Gμν + Λ gμν = (8πG/c⁴) Tμν',
-    'Rμν − ½R gμν = (8πG/c⁴) Tμν',
-    '∇μ Tμν = 0',
-    'R = gμν Rμν',
-    'ds² = gμν dxμ dxν',
-    'Γρμν = ½ gρσ(∂μ gνσ + ∂ν gμσ − ∂σ gμν)',
+    // 'Gμν + Λ gμν = (8πG/c⁴) Tμν',
+    // 'Rμν − ½R gμν = (8πG/c⁴) Tμν',
+    // '∇μ Tμν = 0',
+    // 'R = gμν Rμν',
+    // 'ds² = gμν dxμ dxν',
+    // 'Γρμν = ½ gρσ(∂μ gνσ + ∂ν gμσ − ∂σ gμν)',
   ];
 
   let w = 0;
@@ -323,6 +339,8 @@ if (equationBg instanceof HTMLCanvasElement) {
   };
 
   const drawBlackHole = () => {
+    if (!running) return;
+    
     if (!ctx) return;
 
     const outerR = Math.min(w, h) * 0.28;
@@ -366,7 +384,7 @@ if (equationBg instanceof HTMLCanvasElement) {
     ctx.save();
     ctx.globalAlpha = 0.35;
     ctx.lineWidth = 1.5;
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.28)';
+    ctx.strokeStyle = 'rgba(128, 81, 81, 0.28)';
     ctx.shadowColor = 'rgba(59, 130, 246, 0.22)';
     ctx.shadowBlur = 10;
     ctx.beginPath();
@@ -385,6 +403,8 @@ if (equationBg instanceof HTMLCanvasElement) {
   };
 
   const drawSpacetimeGrid = () => {
+    if (!running) return;
+    
     if (!ctx) return;
 
     const spacing = 70;
@@ -422,6 +442,8 @@ if (equationBg instanceof HTMLCanvasElement) {
   };
 
   const drawEquations = (dt) => {
+    if (!running) return;
+
     if (!ctx) return;
 
     for (const n of nodes) {
@@ -475,7 +497,7 @@ if (equationBg instanceof HTMLCanvasElement) {
     pointer.ty = clamp(pointer.ty || pointer.y, 0, h);
   };
 
-  const render = (t) => {
+  const render = (t) => {    
     if (!ctx) return;
 
     const dt = Math.min(0.05, (t - last) / 1000 || 0.016);
